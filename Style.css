@@ -1,0 +1,9 @@
+table {
+    background-color: aliceblue;
+    border-collapse: collapse;
+}
+
+td {
+    border-style: solid;
+    border-width: 1px;
+}

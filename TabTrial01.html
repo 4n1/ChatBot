@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test01</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("ul").on("click", "li", function(){
+                $("li.selected").removeClass("selected");
+                $(this).addClass("selected");
+            })
+        })
+    </script>
+    <style type="text/css">
+        <!-- body {
+            line-height: 1.0;
+            font-size: 14px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 10px;
+        }
+
+        ul li {
+            float: left;
+            height: 20px;
+            margin: 0px 0px 0px 10px;
+            padding: 5px 15px 5px 15px;
+            border: 1px solidc #ddd;
+            color: #999;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        ul li.selected {
+            color: #000;
+            background-color: #fff;
+            cursor: default;
+        }
+
+        -->
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="selected">Tab1</li>
+        <li>Tab2</li>
+        <li>Tab3</li>
+    </ul>
+</body>
+
+</html>
