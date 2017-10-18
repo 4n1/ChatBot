@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test01</title>
+
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnNewUser").on("click", function() 
+            {
+                $("#frmNewUser").dialog("open");
+            });
+        
+            $("#frmNewUser").dialog({
+                autoOpen: false,
+                modal: true,
+                buttons: {
+                    "新規登録": function () {
+
+                    },
+                    "キャンセル": function () {
+                        $(this).dialog('Close');
+                    }
+                },
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "blind",
+                    duration: 1000
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btnNewUser">ユーザ新規登録</button>
+
+    <div id="frmNewUser" title="ユーザ新規登録">
+        <label id="lblUserID">ユーザID</label>
+        <input id="txtUserID" type="text">
+        <label id="lblUserName">ユーザ名</label>
+        <input id="txtUserName" type="text">
+<!--
+        <input id="btnAdd" type="button" value="新規登録">
+        <input id="btnCancel" type="button" value="キャンセル">
+-->
+    </div>
+</body>
+
+</html>

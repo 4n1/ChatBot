@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test01</title>
+
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // ボタン押下処理
+            $("#btn1").click(function () {
+                // ダイアログ用のボタン(配列)
+                var buttons = [
+                    {
+                        text: "OK",
+                        click: function () { alert("OK!!"); }
+                    },
+                    {
+                        text: "閉じる",
+                        click: function () { $(this).dialog('close'); }
+                    }
+                ];
+
+                // ダイアログを表示
+                showDialog("Title", "Message", buttons);
+            });
+
+            // ダイアログ表示処理
+            function showDialog(title, message, buttons) {
+                var htmlDialog = '<div>' + message + '</div>';
+                $(htmlDialog).dialog({
+                    title: title,
+                    buttons: buttons,
+                    close: function () { $(this).remove(); }
+                });
+            }
+        })
+    </script>
+    <style type="text/css">
+        <!-- body {
+            line-height: 1.0;
+            font-size: 14px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 10px;
+        }
+
+        ul li {
+            float: left;
+            height: 20px;
+            margin: 0px 0px 0px 10px;
+            padding: 5px 15px 5px 15px;
+            border: 1px solidc #ddd;
+            color: #999;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+
+        ul li.selected {
+            color: #000;
+            background-color: #fff;
+            cursor: default;
+        }
+
+        -->
+    </style>
+</head>
+
+<body>
+    <button id="btn1">Dialog</button>
+</body>
+
+</html>
