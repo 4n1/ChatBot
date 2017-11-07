@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test01</title>
+    <link type="text/css" rel="stylesheet" href="Style.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // HTMLを初期化する。
+            $("tblSongList tbody").html("");
+
+            $.getJSON("Data.json", function (data) {
+                var
+                    elmTbl = $("#tbySongList"),
+                    len = data.length;
+
+                for (var i = 0; i < len; i++) {
+                    elmTbl.append($("<tr>"))
+                        .append($("<td>").text(data[i].No))
+                        .append($("<td>").text(data[i].Title))
+                        .append($("<td>").text(data[i].Artist))
+                        .append($("<td>").text(data[i].Year));
+                }
+            });
+        });
+
+        $(function () {
+            $("#btnSend").click(function () {
+                // var $divMessage = new Object();
+                // $divMessage.message = "テストメッセージ";
+                // $divMessage.time = "2017/10/19 17:00:00";
+                // $("div").data($divMessage);
+
+                // var $divMessage = $('<div class="message me" />');
+                // $divMessage.addClass("message me");
+                // $divMessage.data
+                // $divMessage.text = "メッセージ";
+
+                // $("div").data({ time: "2017/10/19 17:00:00", message: "テストメッセージ" });
+                // $("#messages").append($divMessage);
+
+                //		$divMessage.data({ time: "2017/10/19 17:00:00", message: "テストメッセージ" });
+
+                var obj = {
+                    time: "2017/10/19 17:00:00",
+                    message: "テストメッセージ"
+                };
+
+                var $divMessage = $("<div>");
+                $divMessage.addClass("message me");
+                // console.log($divMessageStart);
+                alert("Test02");
+
+                var $divMessageThumb = $("<div>");
+                $divMessageThumb.addClass("message-thumb");
+                $divMessageThumb.append('<img src="images/user_taro.jpg" class="img-circle">');
+                $divMessageThumb.append("</div>");
+                $divMessage.append($divMessageThumb);
+                alert("Test03");
+
+                var $divMessageChat = $("<div>");
+                $divMessageChat.addClass("chat-column");
+                $divMessageChat.append("<div>");
+                $divMessageChat.append('<time class="pull-right">' + obj.time + '</time>');
+                $divMessageChat.append("</div>");
+                $divMessageChat.append('<p class="info">' + obj.message + '</p>');
+                $divMessageChat.append("</div>");
+                $divMessage.append($divMessageChat);
+                alert("Test04");
+
+                var $divMessageEnd = $("</div>");
+                $divMessage.append($divMessageEnd);
+
+                $("#messages").append($divMessage);
+                alert("Test09");
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="messages"></div>
+    <button id="btnSend" type="button" item-width="50px"></button>
+</body>
+
+</html>

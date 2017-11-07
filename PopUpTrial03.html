@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test01</title>
+
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/pace.min.js"></script>
+    <script type="text/javascript "src="js/main.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $('.link2 a').click(function () {
+                var url = $(this).attr('href');
+
+                $('#iframe-wrap').html('&lt;iframe src="' + url + '" width="100%" height="100%"&gt;');
+                $('#iframe-bg').fadeTo('normal', 0.8);
+
+                $('#iframe-wrap iframe').load(function () {
+                    // 呼び出し先のヘッダーとフッターを隠す
+                    $(this).contents().find('#header, #footer').hide();
+
+                    $('#iframe-wrap').fadeIn();
+                    $('#iframe-btn').fadeIn();
+                });
+
+                return false;
+            });
+        })(jQuery);
+    </script>
+</head>
+
+<body>
+    <a href="file:///C:\Work\ChatBot\Git\ChatDoDev\userEdit.html">子画面</a>
+
+</body>
+
+</html>
